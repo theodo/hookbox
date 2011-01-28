@@ -324,7 +324,7 @@ class Channel(object):
             self.history.append(('UNSUBSCRIBE', frame))
             self.prune_history()
         
-        if not self.subscribers:
+        if not self.subscribers and self._options['poll']['mode'] != 'persistent':
             self.server.destroy_channel(self.name)
     
     def destroy(self, needs_auth=True):

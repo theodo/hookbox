@@ -3,13 +3,13 @@ import os, sys
 import hookbox
 
 static_types = [
-    '*.js', 
+    '*.js',
     '*.html',
-    '*.css', 
-    '*.ico', 
-    '*.gif', 
-    '*.jpg', 
-    '*.png', 
+    '*.css',
+    '*.ico',
+    '*.gif',
+    '*.jpg',
+    '*.png',
     '*.txt*',
     '*.py',
     '*.template',
@@ -20,10 +20,10 @@ static_types = [
 #    _install_requires.append("Twisted")
 
 _install_requires = [
-    'eventlet>=0.9.10', 
-    'paste', 
-    'csp_eventlet>=0.5.1', 
-    'rtjp_eventlet>=0.3.2', 
+    'eventlet==0.9.10',
+    'paste',
+    'csp_eventlet<0.6.0',
+    'rtjp_eventlet==0.3.2',
     'pygments',
     'restkit<3.0.0',
 #    'nose==0.11.1',
@@ -36,7 +36,7 @@ if sys.version_info[1] <= 5:
 
 
 def find_package_data():
-    targets = [ 
+    targets = [
         os.path.join('hookbox', 'static'),
         os.path.join('hookbox', 'admin', 'static'),
         os.path.join('hookbox', 'js_src')
@@ -60,11 +60,11 @@ def main():
         package_data = find_package_data(),
         zip_safe = False,
         install_requires = _install_requires,
-        entry_points = '''    
+        entry_points = '''
             [console_scripts]
             hookbox = hookbox.start:main
         ''',
-        
+
         classifiers = [
             'Development Status :: 4 - Beta',
             'Environment :: Console',
@@ -73,7 +73,7 @@ def main():
             'Operating System :: OS Independent',
             'Programming Language :: Python',
             'Topic :: Software Development :: Libraries :: Python Modules'
-        ],        
+        ],
     )
 
 
